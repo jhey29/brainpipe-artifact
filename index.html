@@ -2,10 +2,42 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Hello wasm-pack!</title>
+    <title>BrainPipe Interpreter</title>
+    <style> 
+        body {
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+        textarea {
+            resize: vertical;
+        }
+        .bigtextbox {
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: scroll;
+            width: 100%;
+            height: 3vmax;
+            margin-block: 3mm;
+            border: 1mm ridge lavender;
+            background-color: lavender;
+            padding: 3mm;
+        }
+    </style>
   </head>
   <body>
-    <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
-    <script src="./bootstrap.js"></script>
+    <h1>BrainPipe Interpreter</h1>
+    I have compiled the BrainPipe Interpreter to WebAssembly, and this is it. 
+    Currently with poor debugging.
+    <div>
+        <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
+        Program: 
+        <textarea contenteditable="true" id="program" class="bigtextbox" placeholder="program"></textarea>
+        Input:
+        <textarea contenteditable="true" id="input" class = "bigtextbox" placeholder="input"></textarea>
+        <button id="run"> Run </button>
+        Output: 
+        <div id="output" class="bigtextbox"></div>
+        <a href="" id="link">link encoding most recently run program</a>
+    </div>
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
