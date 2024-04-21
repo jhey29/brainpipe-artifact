@@ -10,7 +10,6 @@ cat /dev/stdin <<Q
 
 server.port = 3000
 
-# If running lighttpd earlier than lighttpd 1.4.71, uncomment (remove '#') to add the following:
 mimetype.assign = (
   ".wasm" => "application/wasm",
   ".js"  => "text/javascript",

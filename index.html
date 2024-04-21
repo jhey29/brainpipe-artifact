@@ -9,26 +9,38 @@
             margin-right: 25%;
         }
         textarea {
-            resize: vertical;
+            resize: none;
+        }
+        code {
+            background-color: lavender;
+            border-radius: 5px;
+            padding: 3px;
         }
         .bigtextbox {
             font-family: 'Courier New', Courier, monospace;
-            overflow-x: scroll;
+            overflow-x: hidden;
             width: 100%;
-            height: 3vmax;
-            margin-block: 3mm;
-            border: 1mm ridge lavender;
+            height: 6vmax;
+            margin-block: 10px;
+            border: 4px ridge lavender;
             background-color: lavender;
-            padding: 3mm;
+            padding: 10px;
         }
     </style>
   </head>
   <body>
     <h1>BrainPipe Interpreter</h1>
-    I have compiled the BrainPipe Interpreter to WebAssembly, and this is it. 
-    Currently with poor debugging.
+    <h2><noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript></h2>
+    BrainPipe is a Brainfuck derivative I made up. Currently its one extra feature is the pipe.
+    <details><summary>How it works</summary>
+    The pipe <code>|</code> allows you to separate multiple Brainfuck programs which each have their own state.
+    Every Brainfuck program's output is attached to the next one's input, 
+    except for the last one where it is displayed to you, and the first one takes your input like normal.
+    My Interpreter also includes the debug instruction <code>#</code> which can be postfixed with any
+    message not made of instructions or whitespace, and will display it and the memory of the subprogram
+    that called it.  
+    </details>
     <div>
-        <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
         Program: 
         <textarea contenteditable="true" id="program" class="bigtextbox" placeholder="program"></textarea>
         Input:
