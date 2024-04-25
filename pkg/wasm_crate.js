@@ -98,13 +98,16 @@ function passStringToWasm0(arg, malloc, realloc) {
 /**
 * @param {string} program
 * @param {string} input
+* @param {string} options
 */
-export function run(program, input) {
+export function run(program, input, options) {
     const ptr0 = passStringToWasm0(program, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
     const len0 = WASM_VECTOR_LEN;
     const ptr1 = passStringToWasm0(input, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
     const len1 = WASM_VECTOR_LEN;
-    wasm.run(ptr0, len0, ptr1, len1);
+    const ptr2 = passStringToWasm0(options, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+    const len2 = WASM_VECTOR_LEN;
+    wasm.run(ptr0, len0, ptr1, len1, ptr2, len2);
 }
 
 function addHeapObject(obj) {

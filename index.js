@@ -12,16 +12,20 @@ let program = atob(addr.searchParams.get("program") ?? ""); //did you know 'null
 document.getElementById("program").value = program;
 let input = atob(addr.searchParams.get("input") ?? "");
 document.getElementById("input").value = input;
-console.log(program);
+let options = atob(addr.searchParams.get("options") ?? "");
+document.getElementById("options").value = options;
 
 init().then(() => {
-    let program, input; 
+    let program, input, options, outbox = document.getElementById("output"); 
   document.getElementById("run").onclick = () =>{
     run(
         program = document.getElementById("program").value,
-        input = document.getElementById("input").value);
+        input = document.getElementById("input").value,
+        options = document.getElementById("options").value);
     addr.searchParams.set("program", btoa(program));
     addr.searchParams.set("input", btoa(input));
+    addr.searchParams.set("options", btoa(options));
+    outbox.innerText = outbox.innerText + "\n\n"
     document.getElementById("link").href = addr;
     }
 });
